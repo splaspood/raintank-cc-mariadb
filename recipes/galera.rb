@@ -53,7 +53,7 @@ include_recipe "#{cookbook_name}::config"
 service 'mysql' do
   service_name node['mariadb']['mysqld']['service_name']
   supports restart: true
-  action :nothing
+  action [ :enable, :start ]
 end
 
 galera_cluster_nodes = []
